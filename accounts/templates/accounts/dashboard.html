@@ -1,0 +1,38 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+{% include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+    <div class="col-md-5">
+        <h5 class="text-center">USERS:</h5>
+        <hr>
+        
+
+        <div class="card card-body">
+            
+            <table class="table table=sm">
+                <tr>
+                    <th></th>
+                    <th>User</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+                
+                {% for user in users %}
+                    <tr>
+                        <td><a class="btn btn=sm btn-info" href="{% url 'user' user.id%}">View</a></td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
